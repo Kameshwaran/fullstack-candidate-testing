@@ -83,7 +83,7 @@ const JobDetail = ({ job }) => {
         <div className="bg-gray-300 rounded-md text-white flex items-center justify-center text-lg focus:outline-none h-10 w-10">
           {firstTwoLetters}
         </div>
-        <div className="ml-2">
+        <div className="pl-2 flex-1">
           {pluralize(totalJobs, 'job')} for {name}
         </div>
       </div>

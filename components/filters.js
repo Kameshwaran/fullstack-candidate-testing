@@ -3,10 +3,22 @@ import { fetchFilters } from '../requests/filters';
 import { formatNumberWithComma } from '../utils';
 import Modal from './modal';
 
-const Filters = () => {
+const Filters = ({ applied, onToggleFilter }) => {
   const [filters, setFilters] = useState({});
   const [requestState, setRequestState] = useState('loading');
   const [modalFilterType, setModalFilterType] = useState(null);
+  const toggleFilter = (filterType, key) => {
+    const appliedFilterValues = applied[filterType] || [];
+    let newFilterValues;
+
+    if (appliedFilterValues.includes(key)) {
+      newFilterValues = appliedFilterValues.filter((filterKey) => filterKey !== key);
+    } else {
+      newFilterValues = [...appliedFilterValues, key];
+    }
+
+    onToggleFilter(filterType, newFilterValues);
+  };
 
   useEffect(async () => {
     const { isError, filters } = await fetchFilters();
@@ -31,6 +43,7 @@ const Filters = () => {
           .keys(filters)
           .map((filterType) => {
             const filterOptions = filters[filterType];
+            const currentlyAppliedFilters = applied[filterType] || [];
             const isShowMoreVisible = filterOptions.length > 10;
 
             return (
@@ -45,7 +58,8 @@ const Filters = () => {
                   filterOptions.slice(0, 10).map(({ key, doc_count }) => (
                     <p
                       key={`${filterType}-${key}`}
-                      className="text-sm my-2"
+                      onClick={() => toggleFilter(filterType, key)}
+                      className={`text-sm my-2 cursor-pointer ${currentlyAppliedFilters.includes(key) ? 'font-bold' : ''}`}
                     >
                       {key}
                       <span className="text-xs text-gray-400 ml-2">
@@ -90,7 +104,8 @@ const Filters = () => {
                       filters[modalFilterType].map(({ key, doc_count }) => (
                         <div
                           key={`${modalFilterType}-${key}`}
-                          className="text-sm w-full md:w-1/4 p-2"
+                          onClick={() => toggleFilter(modalFilterType, key)}
+                          className={`text-sm w-full md:w-1/4 p-2 cursor-pointer ${(applied[modalFilterType]||[]).includes(key) ? 'font-bold' : ''}`}
                         >
                           {key}
                           <span className="text-xs text-gray-400 ml-2">
