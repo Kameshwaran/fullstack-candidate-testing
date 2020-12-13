@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import ContentLoader from 'react-content-loader';
 import { fetchFilters } from '../requests/filters';
 import { formatNumberWithComma } from '../utils';
 import Modal from './modal';
 
+const emptyFilters = new Array(4).fill('');
 const Filters = ({ applied, onToggleFilter }) => {
   const [filters, setFilters] = useState({});
   const [requestState, setRequestState] = useState('loading');
@@ -32,8 +34,33 @@ const Filters = ({ applied, onToggleFilter }) => {
     }
   }, []);
 
-  if (requestState !== 'success') {
-    return null
+  if (requestState === 'loading') {
+    return (
+      <div className="w-72 flex-col">
+        {
+          emptyFilters.map((_, index) => (
+            <div
+              key={`loader-${index}`}
+              className="bg-white p-4 m-4 border"
+            >
+              <ContentLoader
+                height={200}
+                width={288}
+                viewBox="0 0 288 200"
+              >
+                <rect x="0" y="17" rx="4" ry="4" width="120" height="15" />
+                <rect x="0" y="50" rx="3" ry="3" width="200" height="12" />
+                <rect x="0" y="75" rx="3" ry="3" width="180" height="12" />
+                <rect x="0" y="100" rx="3" ry="3" width="140" height="12" />
+                <rect x="0" y="125" rx="3" ry="3" width="200" height="12" />
+                <rect x="0" y="150" rx="3" ry="3" width="200" height="12" />
+                <rect x="0" y="175" rx="3" ry="3" width="200" height="12" />
+              </ContentLoader>
+            </div>
+          ))
+        }
+      </div>
+    )
   }
 
   return (
