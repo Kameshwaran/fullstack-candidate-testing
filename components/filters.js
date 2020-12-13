@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContentLoader from 'react-content-loader';
 import { fetchFilters } from '../requests/filters';
 import { formatNumberWithComma } from '../utils';

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Navbar = () => (
   <div className="bg-white border-b fixed top-0 right-0 left-0 z-20">
     <nav>

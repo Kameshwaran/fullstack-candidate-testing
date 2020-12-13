@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Footer = () => (
   <div className="bg-white border-t border-b flex flex-col flex-1 p-6 md:flex-row">
     <div className="flex-1 p-2">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchJobs } from '../requests/jobs';
 import JobDetail from './jobDetail';
 

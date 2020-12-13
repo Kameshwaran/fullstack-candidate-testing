@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { pluralize, timeSince } from '../utils';
 
 const Row = ({ data }) => {
