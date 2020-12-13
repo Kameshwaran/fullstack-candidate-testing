@@ -1,5 +1,5 @@
 const Navbar = () => (
-  <div className="bg-white border-b">
+  <div className="bg-white border-b fixed top-0 right-0 left-0">
     <nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -20,11 +20,11 @@ const Navbar = () => (
             </div>
             <div className="flex-1 hidden md:block">
               <div className="flex flex-1 items-baseline justify-center space-x-4">
-                <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase">Profile</a>
-                <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase">Jobs</a>
-                <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase">Professional Network</a>
-                <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase">Lounge</a>
-                <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium uppercase">Salary</a>
+                <a href="#" className="text-gray-800 hover:text-primary px-3 py-2 rounded-md text-sm font-medium uppercase">Profile</a>
+                <a href="#" className="text-gray-800 hover:text-primary px-3 py-2 rounded-md text-sm font-medium uppercase">Jobs</a>
+                <a href="#" className="text-gray-800 hover:text-primary px-3 py-2 rounded-md text-sm font-medium uppercase">Professional Network</a>
+                <a href="#" className="text-gray-800 hover:text-primary px-3 py-2 rounded-md text-sm font-medium uppercase">Lounge</a>
+                <a href="#" className="text-gray-800 hover:text-primary px-3 py-2 rounded-md text-sm font-medium uppercase">Salary</a>
               </div>
             </div>
           </div>
@@ -38,21 +38,17 @@ const Navbar = () => (
                   JO
                 </button>
               </div>
-              <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white pl-3 py-2 rounded-md text-sm font-medium uppercase">Logout</a>
+              <a
+                href="#"
+                className="text-gray-800 hover:text-primary pl-3 py-2 rounded-md text-sm font-medium uppercase"
+              >
+                Logout
+              </a>
             </div>
           </div>
-          <button className="md:hidden bg-gray-800 rounded-full text-white flex items-center justify-center text-lg focus:outline-none bg-primary h-10 w-10">
+          <button className="md:hidden rounded-full text-white flex items-center justify-center text-lg focus:outline-none bg-primary h-10 w-10">
             JO
           </button>
-        </div>
-      </div>
-      <div className="hidden md:hidden">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-          <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-          <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-          <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-          <a href="#" className="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
         </div>
       </div>
     </nav>

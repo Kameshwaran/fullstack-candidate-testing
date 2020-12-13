@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head'
 import Layout from '../components/layout';
 import Filters from '../components/filters';
+import Results from '../components/results';
 
 const Home = () => {
   const [keyword, setKeyword] = useState('');
@@ -24,8 +25,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-1">
+      <main className="flex flex-1 mt-16">
         <Filters />
+        <Results />
       </main>
     </Layout>
   )
