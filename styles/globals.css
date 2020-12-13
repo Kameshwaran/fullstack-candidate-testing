@@ -22,3 +22,24 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.modal-container.active {
+  display: flex;
+}
+
+.modal.sm {
+  width: 40%;
+}
+
+.modal.md {
+  width: 60%;
+}
+
+.modal.lg {
+  width: 80%;
+}
